@@ -38,15 +38,24 @@ const TransactionHistory = () => {
     return (
         <GestureHandlerRootView>
             <SafeAreaProvider>
-                <SafeAreaView>
+                <SafeAreaView style={styles.container}>
                     <FlatList
                         data={transactions}
                         renderItem={({item}) => (
-                            <View>
-                                <Text>Amount: ${item.amount}</Text>
-                                <Text>Date: {item.date}</Text>
-                                <Text>Description: {item.description}</Text>
-                                <Text>Type: {item.type}</Text>
+                          <View style={{
+                            flexDirection: 'row',
+                            padding: 10,
+                            margin: 5,
+                            borderBottomWidth: 1,
+                            alignItems: 'center',
+                            alignContent: 'space-between'
+                          }}>
+                              <View style={{ flex: 1 }}>
+                                <Text style={{fontSize: 18}}>{item.description}</Text>
+                                <Text style={{fontSize: 14}}>{item.type}</Text>
+                                <Text style={{fontSize: 14}}>{item.date}</Text>
+                              </View>
+                              <Text style={{fontSize: 20}}>${item.amount}</Text>
                             </View>
                         )}
                         keyExtractor={(item) => item.id.toString()}
