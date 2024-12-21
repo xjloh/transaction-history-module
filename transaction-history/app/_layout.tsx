@@ -82,14 +82,20 @@ function TransactionDetails({ route } : any) {
     const { item } = route.params;
 
     return (
-        <View style={styles.container}>
-        <Text style={styles.title}>Transaction Details</Text>
-            <View style={styles.details}>
-                <Text style={styles.detailText}>Description: {item.description}</Text>
-                <Text style={styles.detailText}>Amount: ${item.amount}</Text>
-                <Text style={styles.detailText}>Date: {item.date}</Text>
-                <Text style={styles.detailText}>Type: {item.type}</Text>
-        </View>
+        <View style={styles.detailContainer}>
+            <Text style={styles.detailAmount}>${item.amount}</Text>
+            <View style={styles.detailText}>
+                <Text style={{color: 'grey', fontSize: 18}}>Description:</Text>
+                <Text style={{fontSize: 18}}>{item.description}</Text>
+            </View>
+            <View style={styles.detailText}>
+                <Text style={{color: 'grey', fontSize: 18}}>Date:</Text>
+                <Text style={{fontSize: 18}}>{item.date}</Text>
+            </View>
+            <View style={styles.detailText}>
+                <Text style={{color: 'grey', fontSize: 18}}>Type:</Text>
+                <Text style={{fontSize: 18}}>{item.type}</Text>
+            </View>
         </View>
     );
 };
@@ -107,12 +113,19 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 32,
     },
-    details: {
-        marginBottom: 20,
-    },
     detailText: {
-        fontSize: 16,
-        marginBottom: 5,
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 10,
+    },
+    detailContainer: {
+        marginTop: 5,
+        alignItems: 'center',
+    },
+    detailAmount: {
+        fontSize: 40,
+        color: 'red',
     },
 });
 
