@@ -1,7 +1,7 @@
 # Transaction history module
 A tool to keep track of your financial mistakes and to remind you of how broke you really are!
 
-Features:
+## Features:
 
 - [ ] Biometric Authentication
 - [ ] Transaction History Page
